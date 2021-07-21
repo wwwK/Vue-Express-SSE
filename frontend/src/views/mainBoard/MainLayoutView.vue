@@ -1,9 +1,10 @@
 <template>
   <v-container class="main-board-layout" no-gutters>
     <v-main class="main-board-content" align-content="start">
-      <router-view class="content-box" />
+      <router-view class="content-box"/>
       {{ latitude }}
       {{ longitude }}
+      {{ numbbb }}
     </v-main>
   </v-container>
 </template>
@@ -18,12 +19,17 @@ export default {
     return {
       latitude: 111,
       longitude: 222,
+      numbbb: 0,
     };
   },
   mounted() {
     // 이전페이지로 돌아갈때 원래 페이지로 돌아가게하기
     // console.log('갑니다')
     this.getLocation();
+
+    setInterval(() => {
+      this.numbbb += 1;
+    }, 100);
   },
 
   methods: {

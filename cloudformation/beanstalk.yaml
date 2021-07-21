@@ -38,19 +38,25 @@ Outputs:
     Value: !GetAtt OriginEnvironment.EndpointURL
 
 Resources:
+  
+  git:
+    Type: AWS::CodeCommit::Repository
+    Properties:
+      RepositoryName: YSY-FRONT_END
+
   VueApplication:
     Type: AWS::ElasticBeanstalk::Application
     Properties:
-      ApplicationName: YSY-VUE
-      Description: AWS Elastic Beanstalk YSY-VUE Application
+      ApplicationName: YSY-VUE-TEST
+      Description: AWS Elastic Beanstalk YSY-VUE-TEST Application
 
   # Origin 
   OriginEnvironment:
     Type: AWS::ElasticBeanstalk::Environment
     Properties:
       ApplicationName: !Ref VueApplication
-      Description: AWS ElasticBeanstalk YSY-VUE-ORIGIN Environment
-      EnvironmentName: YSY-VUE-ORIGIN
+      Description: AWS ElasticBeanstalk YSY-VUE-TEST-ORIGIN Environment
+      EnvironmentName: YSY-VUE-TEST-ORIGIN
       TemplateName: !Ref OriginConfigurationTemplate
   OriginConfigurationTemplate:
     Type: AWS::ElasticBeanstalk::ConfigurationTemplate
@@ -58,7 +64,7 @@ Resources:
       - VueApplication
     Properties:
       ApplicationName: !Ref VueApplication
-      Description: AWS ElasticBeanstalk YSY-VUE-ORIGIN Configuration Template
+      Description: AWS ElasticBeanstalk YSY-VUE-TEST-ORIGIN Configuration Template
       PlatformArn: arn:aws:elasticbeanstalk:ap-northeast-2::platform/Node.js 12 running on 64bit Amazon Linux 2/5.3.2
       OptionSettings:
       #aws:autoscaling:asg
