@@ -3,10 +3,7 @@ Parameters:
   ApplicationInstanceType:
     Description: The compute and memory capacity of the application's EC2 instance type
     Type: String
-    Default: t3.micro
-    AllowedValues:
-    - t3.micro
-    - t3.xlarge
+    Default: t2.micro
   ApplicationAutoScalingMinSize:
     Description: The minimum number of instances in the application auto scaling group
     Type: Number
@@ -15,13 +12,25 @@ Parameters:
   ApplicationAutoScalingMaxSize:
     Description: The maximum number of instances in the application auto scaling group
     Type: Number
-    Default: 5
+    Default: 2
     MinValue: 1
   KeyName:
     Description: Name of an existing EC2 KeyPair to enable SSH access to the instance
     Type: AWS::EC2::KeyPair::KeyName
     Default: ysy-key
     ConstraintDescription: Must be the name of an existing EC2 KeyPair.
+  SecurityName:
+    Description: SecurityName
+    Type: String
+    Default: launch-wizard-14
+  SecurityId:
+    Description: SecurityId
+    Type: String
+    Default: sg-07123110e4d5666ef
+  HttpsArn:
+    Description: protox https arn
+    Type: String
+    Default: arn:aws:acm:ap-northeast-2:871466012612:certificate/a8bd082e-f8db-4c9b-95db-c90077fd614a
 
 Outputs:
   OriginApplicationUrl:
@@ -32,16 +41,16 @@ Resources:
   VueApplication:
     Type: AWS::ElasticBeanstalk::Application
     Properties:
-      ApplicationName: YSY-FRONT
-      Description: AWS Elastic Beanstalk G2-FRONT Application
+      ApplicationName: YSY-VUE
+      Description: AWS Elastic Beanstalk YSY-VUE Application
 
   # Origin 
   OriginEnvironment:
     Type: AWS::ElasticBeanstalk::Environment
     Properties:
       ApplicationName: !Ref VueApplication
-      Description: AWS ElasticBeanstalk G2-FRONT-ORIGIN Environment
-      EnvironmentName: G2-FRONT-ORIGIN
+      Description: AWS ElasticBeanstalk YSY-VUE-ORIGIN Environment
+      EnvironmentName: YSY-VUE-ORIGIN
       TemplateName: !Ref OriginConfigurationTemplate
   OriginConfigurationTemplate:
     Type: AWS::ElasticBeanstalk::ConfigurationTemplate
@@ -49,8 +58,8 @@ Resources:
       - VueApplication
     Properties:
       ApplicationName: !Ref VueApplication
-      Description: AWS ElasticBeanstalk G2-FRONT-ORIGIN Configuration Template
-      PlatformArn: arn:aws:elasticbeanstalk:ap-northeast-2::platform/Node.js 12 running on 64bit Amazon Linux 2/5.3.1
+      Description: AWS ElasticBeanstalk YSY-VUE-ORIGIN Configuration Template
+      PlatformArn: arn:aws:elasticbeanstalk:ap-northeast-2::platform/Node.js 12 running on 64bit Amazon Linux 2/5.3.2
       OptionSettings:
       #aws:autoscaling:asg
       - Namespace: aws:autoscaling:asg
@@ -69,10 +78,10 @@ Resources:
       - Namespace: aws:autoscaling:launchconfiguration
         OptionName: EC2KeyName
         Value: !Ref KeyName
-      #aws:autoscaling:launchconfiguration SecurityGroups default GroupName WEB(ID : sg-00ed0e2fedee98cc0)
+      #aws:autoscaling:launchconfiguration SecurityGroups default GroupName
       - Namespace: aws:autoscaling:launchconfiguration
         OptionName: SecurityGroups
-        Value: WEB
+        Value: !Ref SecurityName
       #aws:elasticbeanstalk:environment
       - Namespace: aws:elasticbeanstalk:environment
         OptionName: EnvironmentType
@@ -90,10 +99,10 @@ Resources:
       - Namespace: aws:elasticbeanstalk:healthreporting:system
         OptionName: SystemType
         Value: enhanced
-      #aws:elbv2:loadbalancer SecurityGroups default GroupName WEB(ID : sg-00ed0e2fedee98cc0)
+      #aws:elbv2:loadbalancer SecurityGroups default GroupName 
       - Namespace: aws:elbv2:loadbalancer
         OptionName: SecurityGroups
-        Value: sg-00ed0e2fedee98cc0
+        Value: !Ref SecurityId
       #aws:elbv2:listener:default ListenerEnabled set false mean : 80 port disable, .ebextensions alb.config create HTTPSRedirect
       - Namespace: aws:elbv2:listener:default
         OptionName: ListenerEnabled
@@ -106,7 +115,4 @@ Resources:
         Value: HTTPS
       - Namespace: aws:elbv2:listener:443
         OptionName: SSLCertificateArns
-        Value: arn:aws:acm:ap-northeast-2:871466012612:certificate/a8bd082e-f8db-4c9b-95db-c90077fd614a
-      - Namespace: aws:elasticbeanstalk:application:environment
-        OptionName: NODE_ENV
-        Value: production
+        Value: !Ref HttpsArn
