@@ -1,0 +1,50 @@
+[
+  {
+    "cid": 0,
+    "name": "유승헌",
+    "resident_registration_number": "999999-1999999",
+    "phone": "010-5555-5555",
+    "is_allow_privacy_info": "Y",
+    "reg_date": "2020-12-30T06:08:27.000Z"
+  },
+  {
+    "cid": 1,
+    "name": "김휘동",
+    "resident_registration_number": "999999-1999999",
+    "phone": "010-5555-5555",
+    "is_allow_privacy_info": "Y",
+    "reg_date": "2021-01-30T06:08:27.000Z"
+  },
+  {
+    "cid": 2,
+    "name": "양승열",
+    "resident_registration_number": "999999-1999999",
+    "phone": "010-5555-5555",
+    "is_allow_privacy_info": "Y",
+    "reg_date": "2020-12-30T06:08:27.000Z"
+  },
+  {
+    "cid": 3,
+    "name": "박강림",
+    "resident_registration_number": "999999-1999999",
+    "phone": "010-5555-5555",
+    "is_allow_privacy_info": "Y",
+    "reg_date": "2021-01-30T06:08:27.000Z"
+  },
+  {
+    "cid": 4,
+    "name": "김원석",
+    "resident_registration_number": "999999-1999999",
+    "phone": "010-5555-5555",
+    "is_allow_privacy_info": "Y",
+    "reg_date": "2021-01-30T06:08:27.000Z"
+  },
+  {
+    "cid": 5,
+    "name": "윤경렬",
+    "resident_registration_number": "999999-1999999",
+    "phone": "010-5555-5555",
+    "is_allow_privacy_info": "Y",
+    "reg_date": "2021-01-30T06:08:27.000Z"
+  }
+]

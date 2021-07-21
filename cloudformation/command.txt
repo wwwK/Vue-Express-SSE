@@ -1,0 +1,5 @@
+aws cloudformation create-stack --stack-name demasian-g2-front --template-body file://beanstalk.yaml --capabilities CAPABILITY_IAM
+aws cloudformation update-stack --stack-name demasian-g2-front --template-body file://beanstalk.yaml --capabilities CAPABILITY_IAM
+
+
+aws cloudformation create-stack --stack-name tmddufTest --template-body file://beanstalk.yaml --capabilities CAPABILITY_IAM

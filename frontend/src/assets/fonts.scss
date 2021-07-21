@@ -1,0 +1,34 @@
+@charset "utf-8";
+
+@font-face {
+  font-family: "appleSD";
+  src: url("assets/fonts/AppleSDGothicNeoL.woff2") format("woff2"),
+      url("assets/fonts/AppleSDGothicNeoL.woff") format("woff");
+  font-weight: 300;
+  font-display: fallback;
+  font-style: normal;
+}
+@font-face {
+  font-family: "appleSD";
+  src: url("assets/fonts/AppleSDGothicNeoM.woff2") format("woff2"),
+    url("assets/fonts/AppleSDGothicNeoM.woff") format("woff");
+  font-weight: normal;
+  font-display: fallback;
+  font-style: normal;
+}
+@font-face {
+  font-family: "appleSD";
+  src: url("assets/fonts/AppleSDGothicNeoB.woff2") format("woff2"),
+    url("assets/fonts/AppleSDGothicNeoB.woff") format("woff");
+  font-weight: bold;
+  font-display: fallback;
+  font-style: normal;
+}
+@font-face {
+  font-family: "appleSD";
+  src: url("assets/fonts/AppleSDGothicNeoEB.woff2") format("woff2"),
+    url("assets/fonts/AppleSDGothicNeoEB.woff") format("woff");
+  font-weight: 900;
+  font-display: fallback;
+  font-style: normal;
+}

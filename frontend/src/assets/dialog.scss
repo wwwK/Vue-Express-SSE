@@ -1,0 +1,11 @@
+.v-dialog__content {
+  .v-dialog.g2-dialog {
+    position: relative;
+
+    .v-card {
+      .v-card__text {
+        padding: 15px;
+      }
+    }
+  }
+}

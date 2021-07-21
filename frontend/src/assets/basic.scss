@@ -1,0 +1,167 @@
+.v-application .v-card__title.text-h6 {
+  font-family: "appleSD", sans-serif !important;
+  font-weight: normal !important;
+}
+
+.wd-20 {
+  width: 20% !important;
+  max-width: 20% !important;
+}
+
+.wd-40 {
+  width: 40% !important;
+  max-width: 40% !important;
+}
+
+.wd-50 {
+  width: 50% !important;
+}
+
+.wd-100 {
+  width: 100% !important;
+}
+
+.hg-100 {
+  height: 100% !important;
+}
+
+.wh-normal {
+  white-space: normal !important;
+}
+
+.wh-nowrap {
+  white-space: nowrap !important;
+}
+
+// select menu
+.v-menu__content {
+  .v-list {
+    .v-list-item {
+      min-height: 35px;
+      font-size: 14px;
+    }
+
+    .v-list-item__content {
+      min-height: 35px;
+      padding: 0;
+
+      .v-list-item__title {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// radio button
+.v-input--radio-group__input {
+  .v-radio.theme--light {
+    .v-icon.v-icon{
+      font-size: 20px;
+    }
+    .v-label {
+      font-size: 14px;
+    }
+  }
+}
+
+.advertisement {
+  height: auto;
+  flex-wrap: wrap;
+  display: flex;
+  .v-calendar-weekly__day {
+    min-height: 100px;
+    // height: 500px;
+    padding: 0px 0px 5px 0px;
+    .ad_chip {
+      width: 100%;
+      margin: 5px 18px 0px 18px;
+      border-radius: 10px;
+      height: min-content;
+      .fill-height {
+        height: auto;
+      }
+    }
+    .ad_epi_chip {
+      width: 100%;
+      margin: 5px 18px 0px 18px;
+      border-radius: 10px;
+      height: min-content;
+      .fill-height {
+        height: auto;
+      }
+    }
+  }
+
+  
+  .v-treeview-node__root {
+    padding-left: 4px;
+    min-height: 34px;
+    .v-treeview-node__content {
+      margin-left: 0px;
+    }
+
+    .v-treeview-node__label {
+      color: white;
+      font-weight: 100;
+    }
+  }
+
+  .day_chip {
+    flex-wrap: wrap;
+    margin: 3px;
+    border-radius: 10px;
+    height: min-content;
+    .fill-height {
+      height: auto;
+    }
+  }
+  
+}
+
+.flex-set {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.w-auto {
+  width: 100%;
+}
+
+.sub-list-group {
+  .v-list-item  {
+    padding-left: 20px !important;
+
+    .v-list-item__icon{
+      margin-right: 20px !important;
+      margin: 11px 0px;
+    }
+  }
+}
+
+
+.advertisement {
+
+  .ad_chip {
+    font-size: 0.8rem;
+  }
+  .v-treeview-node__root {
+    min-height: 24px;
+  }
+
+  .v-icon.v-icon {
+    font-size: 16px;
+  }
+  .v-treeview-node__root {
+    padding-left: 0px;
+  }
+  .v-treeview-node__level {
+    width: 14px;
+  }
+
+  .advertidement_batch {
+    margin-right: 3px;
+    color:#000;
+    font-size:11px;
+  }
+  
+}

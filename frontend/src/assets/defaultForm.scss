@@ -1,0 +1,61 @@
+.default-form {
+  position: relative;
+
+  h3 {
+    font-weight: 900;
+    font-size: 1.5rem;
+  }
+
+  .v-text-field--outlined .v-label {
+    top: 14px;
+    font-size: 0.85rem;
+  }
+
+  .v-text-field {
+    .v-input__control {
+      .v-input__slot {
+        min-height: 45px;
+
+        fieldset {
+          border: 1px solid #e1e1e1;
+        }
+      }
+
+      .v-text-field__details {
+        min-height: 18px;
+
+        .v-messages {
+          .v-messages__wrapper {
+            .v-messages__message {
+              line-height: 1.4;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .v-input {
+    .v-input__control {
+      .v-select__slot {
+        .v-input__append-inner {
+          margin-top: 11px;
+        }
+      }
+    }
+  }
+
+  .v-input--checkbox {
+    .v-input__slot > .v-label {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+@media screen and(max-width:425px) {
+  .default-form {
+    &.col {
+      padding: 0;
+    }
+  }
+}
