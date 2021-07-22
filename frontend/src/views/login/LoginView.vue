@@ -6,26 +6,26 @@
         <h1 class="logo">
           <img src="@/assets/images/login.png" alt="demasian kipis logo" />
         </h1>
-        <GoogleLogin
+        <!-- <GoogleLogin
           :params="loginParams"
           :renderParams="renderParams"
           :onSuccess="onSuccess"
           :onFailure="onFailure"
-        />
+        /> -->
       </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
-import GoogleLogin from "vue-google-login";
+// import GoogleLogin from "vue-google-login";
 import Loading from "@/components/common/Loading";
 import { loginApi } from "@/api/userAPI";
 
 export default {
   name: "LoginView",
   components: {
-    GoogleLogin,
+    // GoogleLogin,
     Loading,
   },
   data() {
