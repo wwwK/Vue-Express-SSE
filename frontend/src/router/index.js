@@ -3,7 +3,7 @@ import LoginView from '@/views/login/LoginView.vue'
 // 메인대시보드
 import MainLayoutView from '@/views/mainBoard/MainLayoutView.vue'
 import TabMainView from '@/views/mainBoard/tab/TabMainView.vue'
-import TabProgramView from '@/views/mainBoard/tab/program/TabProgramView.vue'
+import KingView from '@/views/king/KingView.vue'
 
 
 // NotFound
@@ -78,5 +78,10 @@ export const routes = [
         // beforeEnter: checkAuth(),
       }
     ]
+  },
+  {
+    path: "/king",
+    name: "king",
+    component: KingView
   },
 ]

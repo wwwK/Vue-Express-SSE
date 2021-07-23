@@ -17,6 +17,12 @@
       <v-btn
         @click="endSSE"
       >퇴장</v-btn>
+      <v-btn
+        @click="move"
+      >리다이렉트</v-btn>
+      <v-btn
+        @click="moveRoute"
+      >뷰 라우트 이동</v-btn>
       <p v-html="sseMessage"></p>
     </v-main>
   </v-container>
@@ -25,6 +31,7 @@
 <script>
 import Loading from "@/components/common/Loading";
 import { sse } from "@/common/sse";
+import axios from "axios";
 
 export default {
   components: { Loading },
@@ -65,18 +72,28 @@ export default {
       }
     },
 
-    SSE(name) {
-      if (this.sseClient) {
-        this.sseMessage = ''
+    
+
+    async SSE(name) {
+      try {
+        if (!this.sseClient) {
+          await axios.get(`http://localhost:8888/sse/overCheck?name=${name}`);
+        } else {
+          if (this.sseClient.getName() === name) return;
+
+          await this.sseClient.destroy();
+        }
+
+        this.sseClient = new sse(name);
+        this.sseMessage = '';
+        
+        this.sseClient.instance.onmessage = ({ data }) => {
+          this.sseMessage += `${data} <br/>`;
+        }
+      } catch (e) {
+        alert(e.message)
       }
-      console.log('연결', this.sseClient)
-      this.sseClient = new sse(name);
-      console.log(this.sseClient);
       
-      this.sseClient.onmessage = ({ data }) => {
-        console.log('왔다')
-        this.sseMessage += `${data} <br/>`;
-      }
     },
     connectSSE() {
       const { name } = this;
@@ -84,8 +101,16 @@ export default {
     },
 
     endSSE() {
-      const { name } = this;
-      this.sseClient.destroy(name);
+      this.sseClient.destroy();
+      this.sseClient = null;
+    },
+
+    move() {
+      window.location.href = 'http://localhost:8080/king/';
+    },
+
+    moveRoute() {
+      this.$router.push({ name: 'king' });
     }
 
   }
