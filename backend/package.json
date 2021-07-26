@@ -1,0 +1,30 @@
+{
+  "name": "easy_express",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./dist/server.js",
+    "dev": "tsc-watch --onsuccess \"node ./dist/server.js\" "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.4.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "module-alias": "^2.2.2",
+    "scribbles": "^1.0.1",
+    "tsc-watch": "^4.4.0",
+    "typescript": "^4.3.5"
+  },
+  "_moduleAliases": {
+    "~": "dist"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12"
+  }
+}
