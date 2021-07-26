@@ -28,8 +28,6 @@ router.get('/',  async (req: express.Request, res: express.Response, next: expre
     const { name } = req.query;
 
     res.writeHead(200, {
-      'connection': 'keep-alive',
-      'cache-control': 'no-cache',
       'Content-Type': 'text/event-stream'
     });
 
