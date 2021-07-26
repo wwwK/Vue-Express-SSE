@@ -106,11 +106,11 @@ export default {
     },
 
     move() {
-      window.location.href = 'http://localhost:8080/king/';
+      window.location.href = 'http://localhost:8080/end/';
     },
 
     moveRoute() {
-      this.$router.push({ name: 'king' });
+      this.$router.push({ name: 'end' });
     }
 
   }
